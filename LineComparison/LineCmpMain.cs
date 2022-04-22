@@ -7,18 +7,32 @@ using System.Threading.Tasks;
 namespace LineComparison
 {
     internal class LineCmpMain
-    {
+    {    private int x1, y1, x2, y2;
+
+        public void SetLine() {
+            x1 = 0; y1 = 0; x2 = 0;y2 = 0;
+            x1 = Convert.ToInt32(Console.ReadLine());
+            y1 = Convert.ToInt32(Console.ReadLine());
+            x2 = Convert.ToInt32(Console.ReadLine());
+            y2 = Convert.ToInt32(Console.ReadLine());
+        }
         public static void Main(String[] arg)
         {
-            int x1 = Convert.ToInt32(Console.ReadLine());
-            int y1 = Convert.ToInt32(Console.ReadLine());
-            int x2 = Convert.ToInt32(Console.ReadLine());
-            int y2 = Convert.ToInt32(Console.ReadLine());
-
-            LineCal Line1 = new LineCal(x1, y1, x2, y2);
+         
+            LineCmpMain L1 = new LineCmpMain();
+            LineCmpMain L2 = new LineCmpMain();
+            LineCal line_Cal = new LineCal(); 
+            Console.WriteLine("set line 1");
+            L1.SetLine();
+            Double Length_L1 = line_Cal.linecal(L1.x1,L1.y1,L2.x2,L2.y2);
+            Console.WriteLine("set line 2");
+            L2.SetLine();
+            Double Length_L2 = line_Cal.linecal(L1.x1,L1.y1,L2.x2,L2.y2);
+            Console.WriteLine(Length_L1);
             Console.WriteLine();
-
-            Console.WriteLine("Length of Line1: "+Line1.linecal());
+            Console.WriteLine(Length_L2);   
+            Boolean result = Length_L1.Equals(Length_L2);
+            Console.WriteLine(result);
         }
     }
 }
