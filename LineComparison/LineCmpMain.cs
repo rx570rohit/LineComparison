@@ -17,7 +17,8 @@ namespace LineComparison
 
             LineCal Line1 = new LineCal(x1, y1, x2, y2);
             Console.WriteLine();
-            Console.WriteLine(Line1.linecal());
+
+            Console.WriteLine("Length of Line1: "+Line1.linecal());
         }
     }
 }
